@@ -4,13 +4,18 @@ import json
 import time
 import random
 from openai import OpenAI
+import os
 
 app = Flask(__name__)
 
-# API Keys
-NVIDIA_API_KEY = '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'
-GEMINI_API_KEY = 'AIzaSyDxFiki_idIWsYnc8gDWsB58yAPQVS6beU'
-COHERE_API_KEY = 'fhTjPPsYRIgEf97errIFg34MTSjGpWJCKWpE0p00'
+# Try to import from config, otherwise use environment variables
+try:
+    from config import NVIDIA_API_KEY, GEMINI_API_KEY, COHERE_API_KEY
+except ImportError:
+    # Fall back to environment variables (for production)
+    NVIDIA_API_KEY = os.environ.get('NVIDIA_API_KEY')
+    GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
+    COHERE_API_KEY = os.environ.get('COHERE_API_KEY')
 
 # Initialize NVIDIA client
 nvidia_client = OpenAI(
