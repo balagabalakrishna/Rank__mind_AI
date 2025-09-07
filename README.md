@@ -1,6 +1,6 @@
 # Rank Mind AI
 RankMind AI – Multi-Model LLM Answer Comparison & Ranking Tool
-
+# currently under development 
 ## Overview
 
 RankMind AI is a cutting-edge web application that lets users input a single prompt and receive side-by-side answers from five major AI language models:
